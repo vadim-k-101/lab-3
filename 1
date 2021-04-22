@@ -2,31 +2,32 @@
 #include <math.h>
 #include <locale.h>
 
-int main() {
-  int x, z;
-  float y;
-setlocale (LC_CTYPE,"ru");
-printf("\nВед1ть ц1ле число x: ");
-scanf("%d",&x);
-printf("Вед1ть ціле число z: ");
-scanf("%d",&z);
-if ( x ==-5 && z == 7){
-  printf("\nВаш1 данн1 не можливо обчислити, у знаменнику нуль");
-}
-if (x==5){
-  y= (float)(3*x)+(x*z);
-  printf("\ny = %.3f", y);
-}
-if (x==-5 && z != 7){
-  y= (float)(2*x*z)/(7-z);
-  printf("\ny = %.3f", y);
-}
-if (x==0){
-  y = x;
-  printf("\ny = %.2f", y);
-}
+int main (){
+float x0,y0,R,x1,y1,d;
+setlocale(LC_CTYPE,"ru");
+printf("\n\tВед1ть кординати точки O");
+printf("\n\tВвед1ть кординату x0: ");
+scanf("%f", &x0);
+printf("\tВвед1ть кординату y0: ");
+scanf("%f", &y0);
+printf("\n\tВед1ть R(рад1ус): ");
+scanf("%f", &R);
+printf("\n\tВед1ть кординати точки A");
+printf("\n\tВвед1ть кординату x1: ");
+scanf("%f", &x1);
+printf("\tВвед1ть кординату y1: ");
+scanf("%f", &y1);
 
-
-
+d = sqrt((pow(x1-x0,2))+(pow(y1-y0,2)));//в1др1зок м1ж точками
+if (R < 0) R= R *(-1);
+else if(R==0){
+  printf("точка О не маэ рад1уса, значить кола нема");
+  
+  }
+else if(R>d){
+  printf("точка A всередині круга");
+}
+else if(R==d) printf("точка A на його окружності");
+else printf("точка А знаходиться за кругом");
   return 0;
 }
